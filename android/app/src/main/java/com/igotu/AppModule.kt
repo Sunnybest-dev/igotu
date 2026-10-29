@@ -46,7 +46,7 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideRetrofit(client: OkHttpClient): Retrofit = Retrofit.Builder()
-        .baseUrl("http://10.0.2.2:3000/v1/") // emulator → localhost; change for production
+        .baseUrl("https://igotu.onrender.com/v1/")
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
