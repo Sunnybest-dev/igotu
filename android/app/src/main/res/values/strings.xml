@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IGot-U</string>
+
+    <!-- Landing -->
+    <string name="landing_headline">Your safety,\nalways on.</string>
+    <string name="landing_sub">Real-time protection for you and everyone you care about.</string>
+    <string name="landing_get_started">Get Started</string>
+    <string name="landing_sign_in">Already have an account? Sign in</string>
+
+    <!-- Features -->
+    <string name="feature_1_title">Voice SOS</string>
+    <string name="feature_1_desc">Trigger an emergency alert hands-free with just your voice.</string>
+    <string name="feature_2_title">Live Location</string>
+    <string name="feature_2_desc">Share your real-time location with your trusted circle.</string>
+    <string name="feature_3_title">Silent Recording</string>
+    <string name="feature_3_desc">Auto-record video and audio the moment danger is detected.</string>
+
+    <!-- Auth -->
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email_hint">Email address</string>
+    <string name="password_hint">Password</string>
+    <string name="name_hint">Full name</string>
+    <string name="confirm_password_hint">Confirm password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="or_continue_with">or continue with</string>
+    <string name="continue_google">Continue with Google</string>
+    <string name="terms_notice">By signing up you agree to our Terms of Service and Privacy Policy.</string>
+
+    <!-- Voice Settings -->
+    <string name="voice_settings_title">Voice Trigger</string>
+    <string name="voice_enroll_title">Voice Enrollment</string>
+    <string name="voice_enroll_instruction">Say "IGOT-U" clearly</string>
+    <string name="voice_enroll_complete">Voice profile created ✓</string>
+    <string name="voice_enroll_reset">Reset Enrollment</string>
+
+    <!-- Privacy Lockdown -->
+    <string name="privacy_title">Privacy Lockdown</string>
+    <string name="privacy_status_active">● ACTIVE</string>
+    <string name="privacy_status_inactive">● INACTIVE</string>
+    <string name="privacy_save">Save Settings</string>
+    <string name="privacy_device_settings">Open Device App Lock Settings</string>
+    <string name="privacy_disclaimer">⚠ Android may restrict some application-control features. IGot-U cannot directly lock or hide other apps without device-owner permissions.</string>
+
+    <!-- Emergency Status -->
+    <string name="sos_active_title">🚨 SOS ACTIVE</string>
+    <string name="sos_cancel">CANCEL SOS</string>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="72dp"
+    android:height="72dp"
+    android:viewportWidth="72"
+    android:viewportHeight="72">
+
+    <!-- Pin head -->
+    <path
+        android:fillColor="#00C9FF"
+        android:pathData="M36,10 C26.06,10 18,18.06 18,28 C18,41 36,62 36,62 C36,62 54,41 54,28 C54,18.06 45.94,10 36,10 Z" />
+
+    <!-- Inner circle cutout -->
+    <path
+        android:fillColor="#0D1B2A"
+        android:pathData="M36,22 m-7,0 a7,7 0 1,0 14,0 a7,7 0 1,0 -14,0" />
+
+</vector>

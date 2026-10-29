@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Location -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+
+    <!-- Microphone (voice trigger + audio recording) -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+
+    <!-- Camera (emergency recording) -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA" />
+
+    <!-- Network -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Foreground service (general) -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <!-- Wake lock (keep CPU alive during SOS) -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- Vibration -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- Post notifications (Android 13+) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Receive boot completed (restart voice service after reboot) -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- Storage (Android < 10 fallback) -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+
+    <!--
+        NOTE: android.permission.HIDE_OVERLAY_WINDOWS and device-admin APIs
+        are NOT requested. IGOT-U does not use root, device-owner, or
+        accessibility-abuse techniques for app locking.
+    -->
+
+    <application
+        android:name=".IgotUApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.IgotU"
+        android:networkSecurityConfig="@xml/network_security_config">
+
+        <activity
+            android:name=".ui.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.IgotU.Splash"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.LandingActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.AuthActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".ui.EmergencyContactsActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity android:name=".ui.VoiceEnrollmentActivity" android:exported="false" />
+        <activity android:name=".ui.VoiceSettingsActivity" android:exported="false" />
+        <activity android:name=".ui.ConnectionsActivity" android:exported="false" />
+        <activity android:name=".ui.PrivacyLockdownActivity" android:exported="false" />
+        <activity android:name=".ui.EmergencyStatusActivity" android:exported="false" android:showWhenLocked="true" android:turnScreenOn="true" />
+        <!--
+            SOS Foreground Service
+            Declared with multiple foreground service types so Android permits
+            microphone + camera + location simultaneously during an emergency.
+            Requires Android 14+ for foreground service type enforcement.
+        -->
+        <service
+            android:name=".service.SosService"
+            android:foregroundServiceType="location|microphone|camera"
+            android:exported="false" />
+
+        <!--
+            Voice Trigger Foreground Service
+            LIMITATION: Android does not permit silent background microphone access.
+            This service MUST show a persistent notification while listening.
+            On Android 14+ the foregroundServiceType="microphone" is mandatory.
+        -->
+        <service
+            android:name=".service.VoiceTriggerService"
+            android:foregroundServiceType="microphone"
+            android:exported="false" />
+
+        <!-- Boot receiver to restart voice trigger service if enabled -->
+        <receiver
+            android:name=".service.BootReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>

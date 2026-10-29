@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    IGot-U launcher icon foreground
+    Canvas: 108x108dp (adaptive icon safe zone: 72x72dp centred)
+    Design: cyan shield with a white location-pin cutout
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Shield body -->
+    <path
+        android:fillColor="#00C9FF"
+        android:pathData="
+            M54,18
+            C54,18 30,26 30,44
+            C30,60 42,70 54,78
+            C66,70 78,60 78,44
+            C78,26 54,18 54,18
+            Z" />
+
+    <!-- Shield inner highlight -->
+    <path
+        android:fillColor="#0099CC"
+        android:pathData="
+            M54,24
+            C54,24 35,31 35,46
+            C35,59 45,68 54,75
+            C63,68 73,59 73,46
+            C73,31 54,24 54,24
+            Z" />
+
+    <!-- Location pin circle (top of pin) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="
+            M54,38
+            m-7,0
+            a7,7 0 1,0 14,0
+            a7,7 0 1,0 -14,0" />
+
+    <!-- Location pin tail -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="
+            M47.5,43
+            Q54,62 54,62
+            Q54,62 60.5,43
+            Z" />
+
+    <!-- Pin hole (cutout) -->
+    <path
+        android:fillColor="#0099CC"
+        android:pathData="
+            M54,35
+            m-3.5,0
+            a3.5,3.5 0 1,0 7,0
+            a3.5,3.5 0 1,0 -7,0" />
+
+</vector>
